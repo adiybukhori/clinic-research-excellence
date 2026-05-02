@@ -1,305 +1,581 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clinic Research Excellence 2026</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clinic Research Excellence 2026</title>
 
-<style>
-*{box-sizing:border-box;font-family:Arial}
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-body{
-margin:0;
-background:#f6f2f8;
-color:#222;
-}
+    body {
+      margin: 0;
+      background: #f6f2f8;
+      color: #222;
+    }
 
-.hero{
-background:linear-gradient(135deg,#2b004f,#8b1e5d);
-color:white;
-padding:60px 20px;
-text-align:center;
-}
+    .hero {
+      background: linear-gradient(135deg, #2b004f, #8b1e5d);
+      color: white;
+      padding: 55px 20px 90px;
+      text-align: center;
+    }
 
-.hero h1{
-margin:0;
-font-size:42px;
-letter-spacing:2px;
-}
+    .hero h1 {
+      margin: 0;
+      font-size: 44px;
+      letter-spacing: 2px;
+    }
 
-.container{
-max-width:1000px;
-margin:-40px auto;
-padding:20px;
-}
+    .hero p {
+      max-width: 760px;
+      margin: 16px auto 0;
+      font-size: 17px;
+      line-height: 1.6;
+    }
 
-.card{
-background:white;
-padding:25px;
-border-radius:16px;
-margin-bottom:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
-}
+    .hero-details {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
 
-h2{
-margin-top:0;
-color:#5a0d6f;
-}
+    .hero-pill {
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: bold;
+      font-size: 14px;
+    }
 
-/* SESSION CARD */
-.session{
-border:2px solid #eee;
-border-radius:14px;
-padding:18px;
-margin-bottom:12px;
-cursor:pointer;
-transition:0.3s;
-}
+    .container {
+      max-width: 1100px;
+      margin: -60px auto 60px;
+      padding: 0 20px;
+    }
 
-.session:hover{
-border-color:#8b1e5d;
-transform:scale(1.01);
-}
+    .poster-card {
+      background: white;
+      padding: 16px;
+      border-radius: 22px;
+      margin-bottom: 24px;
+      box-shadow: 0 14px 35px rgba(0,0,0,0.12);
+    }
 
-.session.active{
-border-color:#8b1e5d;
-background:#fff0f6;
-}
+    .poster-card img {
+      width: 100%;
+      max-height: 620px;
+      object-fit: contain;
+      border-radius: 16px;
+      display: block;
+      background: #23003f;
+    }
 
-.session strong{
-color:#5a0d6f;
-font-size:16px;
-}
+    .card {
+      background: white;
+      padding: 28px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
 
-.session span{
-display:block;
-margin-top:6px;
-color:#666;
-}
+    h2 {
+      margin-top: 0;
+      color: #5a0d6f;
+      font-size: 28px;
+    }
 
-/* FORM */
-.form-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:15px;
-}
+    .intro {
+      line-height: 1.7;
+      color: #444;
+      font-size: 16px;
+    }
 
-label{
-font-weight:bold;
-font-size:14px;
-}
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 20px;
+    }
 
-input,select{
-width:100%;
-padding:12px;
-margin-top:6px;
-border-radius:8px;
-border:1px solid #ccc;
-}
+    .info-box {
+      background: #f8eff8;
+      border: 1px solid #ead4ec;
+      border-radius: 16px;
+      padding: 18px;
+    }
 
-input[readonly]{
-background:#f3f3f3;
-font-weight:bold;
-}
+    .info-box span {
+      display: block;
+      font-size: 13px;
+      color: #777;
+      margin-bottom: 7px;
+    }
 
-button{
-background:linear-gradient(135deg,#5a0d6f,#8b1e5d);
-color:white;
-padding:15px;
-border:none;
-border-radius:10px;
-font-size:16px;
-font-weight:bold;
-cursor:pointer;
-}
+    .info-box strong {
+      color: #3b064d;
+    }
 
-.success,.error{
-display:none;
-padding:15px;
-margin-top:15px;
-border-radius:10px;
-}
+    .session {
+      border: 2px solid #eee;
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 14px;
+      cursor: pointer;
+      transition: 0.25s;
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
 
-.success{background:#e9fff0}
-.error{background:#ffecec;color:red}
+    .session:hover {
+      border-color: #9b2d70;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(91,13,111,0.12);
+    }
 
-@media(max-width:800px){
-.form-grid{grid-template-columns:1fr}
-.hero h1{font-size:30px}
-}
-</style>
+    .session.active {
+      border-color: #8b1e5d;
+      background: #fff0f7;
+    }
 
+    .session strong {
+      color: #5a0d6f;
+      font-size: 18px;
+    }
+
+    .session small {
+      display: block;
+      margin-top: 6px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .price {
+      background: #5a0d6f;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .payment-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      overflow: hidden;
+      border-radius: 14px;
+    }
+
+    .payment-table td {
+      border: 1px solid #ddd;
+      padding: 14px;
+    }
+
+    .payment-table td:first-child {
+      font-weight: bold;
+      background: #faf7fc;
+      width: 35%;
+    }
+
+    .note {
+      font-size: 14px;
+      color: #b00020;
+      margin-top: 12px;
+      font-weight: bold;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    label {
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 13px;
+      margin-top: 6px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+
+    input[readonly] {
+      background: #f3f3f3;
+      font-weight: bold;
+    }
+
+    .checkbox-row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin: 18px 0;
+      font-size: 14px;
+    }
+
+    .checkbox-row input {
+      width: auto;
+      margin-top: 3px;
+    }
+
+    button {
+      width: 100%;
+      background: linear-gradient(135deg, #5a0d6f, #8b1e5d);
+      color: white;
+      padding: 16px;
+      border: none;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .success, .error {
+      display: none;
+      padding: 16px;
+      margin-top: 18px;
+      border-radius: 12px;
+      font-weight: bold;
+    }
+
+    .success {
+      background: #e9fff0;
+      color: #146b2e;
+      border: 1px solid #6fd88a;
+    }
+
+    .error {
+      background: #fff0f0;
+      color: #9d0000;
+      border: 1px solid #ff8a8a;
+    }
+
+    @media(max-width:800px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .form-grid,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .session {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="hero">
-<h1>Clinic Research Excellence 2026</h1>
-<p>Choose your session & secure your seat</p>
-</div>
+  <section class="hero">
+    <h1>Clinic Research Excellence 2026</h1>
+    <p>
+      A practical research clinic designed to help participants start smart,
+      strengthen research direction, and build confidence throughout the PhD journey.
+    </p>
 
-<div class="container">
+    <div class="hero-details">
+      <div class="hero-pill">23 May 2026</div>
+      <div class="hero-pill">8:30 AM – 5:00 PM</div>
+      <div class="hero-pill">Bangi Golf Resort</div>
+      <div class="hero-pill">Limited Seats</div>
+    </div>
+  </section>
 
-<div class="card">
-<h2>Select Your Session</h2>
+  <main class="container">
 
-<div class="session" data-value="Morning Session - Research Methodology" data-amount="199">
-<strong>Morning Session – Research Methodology</strong>
-<span>RM199</span>
-</div>
+    <section class="poster-card">
+      <img 
+        src="https://drive.google.com/uc?export=view&id=1S0d7YzziKyfq4D9AgrrZMdMrP_y5iaN8" 
+        alt="Clinic Research Excellence 2026 Poster"
+      />
+    </section>
 
-<div class="session" data-value="Afternoon Session - Publisher Journal" data-amount="199">
-<strong>Afternoon Session – Publisher Journal</strong>
-<span>RM199</span>
-</div>
+    <section class="card">
+      <h2>Program Overview</h2>
+      <p class="intro">
+        Clinic Research Excellence 2026 is specially designed for postgraduate students,
+        researchers, lecturers, and individuals who are preparing for or currently pursuing
+        their research journey. Participants may choose to attend either one session or join
+        the full-day clinic for a more complete learning experience.
+      </p>
 
-<div class="session" data-value="Full Day - 2 Sessions" data-amount="349">
-<strong>Full Day – 2 Sessions</strong>
-<span>RM349</span>
-</div>
+      <div class="info-grid">
+        <div class="info-box">
+          <span>Morning Session</span>
+          <strong>Research Methodology</strong>
+        </div>
+        <div class="info-box">
+          <span>Afternoon Session</span>
+          <strong>Publisher Journal</strong>
+        </div>
+        <div class="info-box">
+          <span>Full Day Package</span>
+          <strong>2 Sessions</strong>
+        </div>
+      </div>
+    </section>
 
-</div>
+    <section class="card">
+      <h2>Select Your Session</h2>
 
-<div class="card">
-<h2>Registration</h2>
+      <div class="session" data-value="Morning Session - Research Methodology" data-amount="199">
+        <div>
+          <strong>Morning Session – Research Methodology</strong>
+          <small>Suitable for participants who want to strengthen research planning, structure, and methodology direction.</small>
+        </div>
+        <div class="price">RM199</div>
+      </div>
 
-<form id="form">
+      <div class="session" data-value="Afternoon Session - Publisher Journal" data-amount="199">
+        <div>
+          <strong>Afternoon Session – Publisher Journal</strong>
+          <small>Suitable for participants who want practical guidance on journal publication and academic publishing.</small>
+        </div>
+        <div class="price">RM199</div>
+      </div>
 
-<div class="form-grid">
+      <div class="session" data-value="Full Day - 2 Sessions" data-amount="349">
+        <div>
+          <strong>Full Day – 2 Sessions</strong>
+          <small>Best value for participants who want to attend both morning and afternoon sessions.</small>
+        </div>
+        <div class="price">RM349</div>
+      </div>
+    </section>
 
-<div>
-<label>Full Name</label>
-<input id="fullName" required>
-</div>
+    <section class="card">
+      <h2>Payment Instruction</h2>
+      <p>Please make payment before submitting the registration form.</p>
 
-<div>
-<label>IC / Passport</label>
-<input id="icNo" required>
-</div>
+      <table class="payment-table">
+        <tr>
+          <td>Bank Name</td>
+          <td>Public Bank</td>
+        </tr>
+        <tr>
+          <td>Account Name</td>
+          <td>Kolej Antarabangsa Inovatif Sdn Bhd</td>
+        </tr>
+        <tr>
+          <td>Account Number</td>
+          <td><strong>3150 9890 34</strong></td>
+        </tr>
+        <tr>
+          <td>Reference 1</td>
+          <td>Participant IC / Passport Number</td>
+        </tr>
+        <tr>
+          <td>Reference 2</td>
+          <td>Participant Phone Number</td>
+        </tr>
+      </table>
 
-<div>
-<label>Phone</label>
-<input id="phone" required>
-</div>
+      <div class="note">
+        Please note that all payments made are non-refundable.
+      </div>
+    </section>
 
-<div>
-<label>Email</label>
-<input id="email" required>
-</div>
+    <section class="card">
+      <h2>Registration Form</h2>
 
-<div>
-<label>Current Status</label>
-<select id="currentStatus" required>
-<option value="">Select</option>
-<option>PhD</option>
-<option>Master</option>
-<option>Interested</option>
-</select>
-</div>
+      <form id="registrationForm">
+        <div class="form-grid">
 
-<div>
-<label>Institution</label>
-<input id="institution">
-</div>
+          <div>
+            <label>Full Name *</label>
+            <input type="text" id="fullName" required />
+          </div>
 
-<div>
-<label>Payment Date</label>
-<input type="date" id="paymentDate" required>
-</div>
+          <div>
+            <label>IC / Passport No. *</label>
+            <input type="text" id="icNo" required />
+          </div>
 
-<div>
-<label>Amount (RM)</label>
-<input id="paymentAmount" readonly required>
-</div>
+          <div>
+            <label>Phone Number *</label>
+            <input type="tel" id="phone" required />
+          </div>
 
-<div>
-<label>Upload Receipt</label>
-<input type="file" id="receiptFile" required>
-</div>
+          <div>
+            <label>Email Address *</label>
+            <input type="email" id="email" required />
+          </div>
 
-</div>
+          <div>
+            <label>Current Status *</label>
+            <select id="currentStatus" required>
+              <option value="">Please select</option>
+              <option>Current PhD Student</option>
+              <option>Master Student</option>
+              <option>Interested to pursue PhD</option>
+              <option>Lecturer / Academic Staff</option>
+              <option>Others</option>
+            </select>
+          </div>
 
-<br>
-<button type="submit">Submit Registration</button>
+          <div>
+            <label>Institution / Organisation *</label>
+            <input type="text" id="institution" required />
+          </div>
 
-</form>
+          <div>
+            <label>Payment Date *</label>
+            <input type="date" id="paymentDate" required />
+          </div>
 
-<div class="success" id="success"></div>
-<div class="error" id="error"></div>
+          <div>
+            <label>Payment Amount (RM) *</label>
+            <input type="number" id="paymentAmount" readonly required />
+          </div>
 
-</div>
+          <div>
+            <label>Upload Payment Receipt *</label>
+            <input type="file" id="receiptFile" accept="image/*,.pdf" required />
+          </div>
 
-</div>
+        </div>
 
-<script>
-const SCRIPT_URL = 'PASTE_YOUR_APPS_SCRIPT_URL';
+        <div class="checkbox-row">
+          <input type="checkbox" id="confirmation" required />
+          <label for="confirmation">
+            I confirm that the payment has been made and all information provided is accurate.
+          </label>
+        </div>
 
-let selectedSession = '';
+        <button type="submit" id="submitBtn">Submit Registration</button>
+      </form>
 
-document.querySelectorAll('.session').forEach(card=>{
-card.addEventListener('click',function(){
+      <div class="success" id="successBox"></div>
+      <div class="error" id="errorBox"></div>
+    </section>
 
-document.querySelectorAll('.session').forEach(c=>c.classList.remove('active'));
-this.classList.add('active');
+  </main>
 
-selectedSession = this.getAttribute('data-value');
-document.getElementById('paymentAmount').value = this.getAttribute('data-amount');
+  <script>
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz4G_BwRMi9mz3HpRhVczfzd_Q8y1gKPWcaz9nArRIj5bnThkkzTa-VynaXJ37HDL4/exec';
 
-});
-});
+    let selectedSession = '';
 
-document.getElementById('form').addEventListener('submit', async e=>{
-e.preventDefault();
+    document.querySelectorAll('.session').forEach(card => {
+      card.addEventListener('click', function () {
+        document.querySelectorAll('.session').forEach(c => c.classList.remove('active'));
+        this.classList.add('active');
 
-if(!selectedSession){
-alert('Please select a session');
-return;
-}
+        selectedSession = this.getAttribute('data-value');
+        document.getElementById('paymentAmount').value = this.getAttribute('data-amount');
+      });
+    });
 
-try{
-const file = receiptFile.files[0];
-const base64 = await toBase64(file);
+    document.getElementById('registrationForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
 
-const payload={
-fullName: fullName.value,
-icNo: icNo.value,
-phone: phone.value,
-email: email.value,
-currentStatus: currentStatus.value,
-sessionSelection: selectedSession,
-institution: institution.value,
-paymentDate: paymentDate.value,
-paymentAmount: paymentAmount.value,
-receiptBase64: base64,
-receiptFileName: file.name,
-receiptMimeType: file.type
-};
+      const submitBtn = document.getElementById('submitBtn');
+      const successBox = document.getElementById('successBox');
+      const errorBox = document.getElementById('errorBox');
 
-const res = await fetch(SCRIPT_URL,{
-method:'POST',
-body: JSON.stringify(payload)
-});
+      successBox.style.display = 'none';
+      errorBox.style.display = 'none';
 
-const data = await res.json();
+      if (!selectedSession) {
+        errorBox.textContent = 'Please select your session before submitting.';
+        errorBox.style.display = 'block';
+        return;
+      }
 
-success.style.display='block';
-success.innerHTML='Success! ID: '+data.registrationId;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
 
-}catch(err){
-error.style.display='block';
-error.innerHTML=err;
-}
-});
+      try {
+        const fileInput = document.getElementById('receiptFile');
+        const file = fileInput.files[0];
 
-function toBase64(file){
-return new Promise((resolve,reject)=>{
-const reader=new FileReader();
-reader.onload=()=>resolve(reader.result);
-reader.onerror=reject;
-reader.readAsDataURL(file);
-});
-}
-</script>
+        if (!file) {
+          throw new Error('Please upload your payment receipt.');
+        }
+
+        if (file.size > 10 * 1024 * 1024) {
+          throw new Error('File size must not exceed 10MB.');
+        }
+
+        const receiptBase64 = await fileToBase64(file);
+
+        const payload = {
+          fullName: document.getElementById('fullName').value.trim(),
+          icNo: document.getElementById('icNo').value.trim(),
+          phone: document.getElementById('phone').value.trim(),
+          email: document.getElementById('email').value.trim(),
+          currentStatus: document.getElementById('currentStatus').value,
+          sessionSelection: selectedSession,
+          institution: document.getElementById('institution').value.trim(),
+          paymentDate: document.getElementById('paymentDate').value,
+          paymentAmount: document.getElementById('paymentAmount').value,
+          receiptBase64: receiptBase64,
+          receiptFileName: file.name,
+          receiptMimeType: file.type
+        };
+
+        const response = await fetch(SCRIPT_URL, {
+          method: 'POST',
+          body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+
+        if (result.status === 'success') {
+          successBox.innerHTML = `
+            Registration submitted successfully.<br>
+            Your Registration ID is: <strong>${result.registrationId}</strong><br><br>
+            Please check your email for confirmation.
+          `;
+          successBox.style.display = 'block';
+          document.getElementById('registrationForm').reset();
+          selectedSession = '';
+          document.querySelectorAll('.session').forEach(c => c.classList.remove('active'));
+        } else {
+          throw new Error(result.message);
+        }
+
+      } catch (error) {
+        errorBox.textContent = 'Submission failed: ' + error.message;
+        errorBox.style.display = 'block';
+      }
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Registration';
+    });
+
+    function fileToBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+        reader.readAsDataURL(file);
+      });
+    }
+  </script>
 
 </body>
 </html>
