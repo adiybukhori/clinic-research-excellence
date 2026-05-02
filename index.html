@@ -61,10 +61,30 @@
     }
 
     .poster-card {
-      background: transparent;
-      box-shadow: none;
-      padding: 0;
-    }  
+      position: relative;
+      padding: 30px;
+      border-radius: 22px;
+      overflow: hidden;
+    }
+    
+    .poster-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('/poster.jpg') center/cover no-repeat;
+      filter: blur(40px);
+      opacity: 0.25;
+      transform: scale(1.2);
+    }
+    
+    .poster-card img {
+      position: relative;
+      z-index: 1;
+      display: block;
+      margin: auto;
+      max-height: 600px;
+      border-radius: 16px;
+    }
 
     .poster-card img {
       width: 100%;
