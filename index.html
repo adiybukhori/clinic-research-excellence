@@ -1,434 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clinic Research Excellence 2026</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Clinic Research Excellence 2026</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<style>
+*{box-sizing:border-box;font-family:Arial}
+body{margin:0;background:#faf7fc}
+.hero{background:linear-gradient(135deg,#23003f,#7b1557);color:white;padding:50px;text-align:center}
+.container{max-width:1000px;margin:-40px auto;padding:20px}
+.card{background:white;padding:25px;border-radius:15px;margin-bottom:20px}
+h2{color:#5a0d6f}
+input,select{width:100%;padding:12px;margin-top:6px;border-radius:8px;border:1px solid #ccc}
+button{background:#5a0d6f;color:white;padding:14px;border:none;border-radius:10px;font-weight:bold}
+.success,.error{display:none;margin-top:15px;padding:15px;border-radius:10px}
+.success{background:#e9fff0}
+.error{background:#ffecec;color:red}
+</style>
 
-    body {
-      margin: 0;
-      background: #faf7fc;
-      color: #222;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #23003f, #7b1557);
-      color: white;
-      padding: 50px 20px 70px;
-      text-align: center;
-    }
-
-    .logo {
-      font-size: 26px;
-      font-weight: bold;
-      margin-bottom: 25px;
-    }
-
-    .hero h1 {
-      font-size: 46px;
-      margin: 0;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-
-    .hero p {
-      max-width: 780px;
-      margin: 18px auto 0;
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    .badge {
-      display: inline-block;
-      background: #ff5ca8;
-      color: white;
-      padding: 11px 22px;
-      border-radius: 30px;
-      margin-top: 25px;
-      font-weight: bold;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: -40px auto 60px;
-      padding: 0 20px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 18px;
-      padding: 28px;
-      margin-bottom: 24px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-    }
-
-    h2 {
-      color: #54106f;
-      margin-top: 0;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-    }
-
-    .info-box {
-      background: #f5eefb;
-      padding: 18px;
-      border-radius: 14px;
-      text-align: center;
-      font-weight: bold;
-    }
-
-    .info-box span {
-      display: block;
-      font-size: 13px;
-      color: #666;
-      margin-bottom: 8px;
-      font-weight: normal;
-    }
-
-    .payment-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 15px;
-    }
-
-    .payment-table td {
-      border: 1px solid #ddd;
-      padding: 14px;
-    }
-
-    .payment-table td:first-child {
-      font-weight: bold;
-      background: #f8f8f8;
-      width: 35%;
-    }
-
-    .note {
-      font-size: 14px;
-      color: #b00020;
-      margin-top: 12px;
-      font-weight: bold;
-    }
-
-    form {
-      display: grid;
-      gap: 16px;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    label {
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    input, select {
-      width: 100%;
-      padding: 13px;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      margin-top: 6px;
-      font-size: 15px;
-    }
-
-    .checkbox-row {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      font-size: 14px;
-    }
-
-    .checkbox-row input {
-      width: auto;
-      margin-top: 3px;
-    }
-
-    button {
-      background: linear-gradient(135deg, #54106f, #8b1e5d);
-      color: white;
-      border: none;
-      border-radius: 12px;
-      padding: 16px;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-
-    .success {
-      display: none;
-      background: #e9fff0;
-      border: 1px solid #6fd88a;
-      color: #146b2e;
-      padding: 18px;
-      border-radius: 12px;
-      margin-top: 18px;
-      font-weight: bold;
-    }
-
-    .error {
-      display: none;
-      background: #fff0f0;
-      border: 1px solid #ff8a8a;
-      color: #9d0000;
-      padding: 18px;
-      border-radius: 12px;
-      margin-top: 18px;
-      font-weight: bold;
-    }
-
-    @media (max-width: 800px) {
-      .hero h1 {
-        font-size: 32px;
-      }
-
-      .grid, .form-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </head>
 
 <body>
 
-  <section class="hero">
-    <div class="logo">Innovative University College</div>
-    <h1>Clinic Research Excellence 2026</h1>
-    <p>
-      Start smart, research with confidence. Join our practical research clinic designed
-      to strengthen your research direction and support your PhD journey.
-    </p>
-    <div class="badge">Limited to 30 Participants Only</div>
-  </section>
+<div class="hero">
+<h1>Clinic Research Excellence 2026</h1>
+<p>Limited Seats Available</p>
+</div>
 
-  <main class="container">
+<div class="container">
 
-    <section class="card">
-      <h2>Event Details</h2>
-      <div class="grid">
-        <div class="info-box"><span>Date</span>23 May 2026</div>
-        <div class="info-box"><span>Time</span>8:30 AM – 5:00 PM</div>
-        <div class="info-box"><span>Venue</span>Bangi Golf Resort</div>
-        <div class="info-box"><span>Fee</span>RM300</div>
-      </div>
-    </section>
+<div class="card">
+<h2>Payment Instruction</h2>
+<p><b>Public Bank</b><br>
+Kolej Antarabangsa Inovatif Sdn Bhd<br>
+Account No: <b>3150 9890 34</b></p>
+</div>
 
-    <section class="card">
-      <h2>Payment Instruction</h2>
-      <p>Please make payment before submitting the registration form.</p>
+<div class="card">
+<h2>Registration</h2>
 
-      <table class="payment-table">
-        <tr>
-          <td>Bank Name</td>
-          <td>Public Bank</td>
-        </tr>
-        <tr>
-          <td>Account Name</td>
-          <td>Kolej Antarabangsa Inovatif Sdn Bhd</td>
-        </tr>
-        <tr>
-          <td>Account Number</td>
-          <td><strong>3150 9890 34</strong></td>
-        </tr>
-        <tr>
-          <td>Reference 1</td>
-          <td>Student’s IC Number</td>
-        </tr>
-        <tr>
-          <td>Reference 2</td>
-          <td>Student’s Phone Number</td>
-        </tr>
-      </table>
+<form id="form">
 
-      <div class="note">
-        Please note that all payments made are non-refundable.
-      </div>
-    </section>
+<label>Full Name</label>
+<input id="fullName" required>
 
-    <section class="card">
-      <h2>Registration Form</h2>
+<label>IC / Passport</label>
+<input id="icNo" required>
 
-      <form id="registrationForm">
-        <div class="form-grid">
+<label>Phone</label>
+<input id="phone" required>
 
-          <div>
-            <label>Full Name *</label>
-            <input type="text" id="fullName" required />
-          </div>
+<label>Email</label>
+<input id="email" required>
 
-          <div>
-            <label>IC / Passport No. *</label>
-            <input type="text" id="icNo" required />
-          </div>
+<label>Current Status</label>
+<select id="currentStatus" required>
+<option value="">Select</option>
+<option>PhD</option>
+<option>Master</option>
+<option>Interested</option>
+</select>
 
-          <div>
-            <label>Phone Number *</label>
-            <input type="tel" id="phone" required />
-          </div>
+<label>Session Selection</label>
+<select id="sessionSelection" required>
+<option value="">Select</option>
+<option value="Morning - Research Methodology" data-amount="199">
+Morning Session - Research Methodology (RM199)
+</option>
+<option value="Afternoon - Publisher Journal" data-amount="199">
+Afternoon Session - Publisher Journal (RM199)
+</option>
+<option value="Full Day - 2 Sessions" data-amount="349">
+Full Day - 2 Sessions (RM349)
+</option>
+</select>
 
-          <div>
-            <label>Email Address *</label>
-            <input type="email" id="email" required />
-          </div>
+<label>Institution</label>
+<input id="institution">
 
-          <div>
-            <label>Current Status *</label>
-            <select id="currentStatus" required>
-              <option value="">Please select</option>
-              <option>Current PhD Student</option>
-              <option>Master Student</option>
-              <option>Interested to pursue PhD</option>
-              <option>Lecturer / Academic Staff</option>
-              <option>Others</option>
-            </select>
-          </div>
+<label>Payment Date</label>
+<input type="date" id="paymentDate" required>
 
-          <div>
-            <label>Institution / Organisation *</label>
-            <input type="text" id="institution" required />
-          </div>
+<label>Payment Amount</label>
+<input id="paymentAmount" readonly required>
 
-          <div>
-            <label>Payment Date *</label>
-            <input type="date" id="paymentDate" required />
-          </div>
+<label>Upload Receipt</label>
+<input type="file" id="receiptFile" required>
 
-          <div>
-            <label>Payment Amount *</label>
-            <input type="number" id="paymentAmount" value="300" required />
-          </div>
+<br><br>
+<button type="submit">Submit</button>
 
-          <div>
-            <label>Do you need official receipt? *</label>
-            <select id="officialReceipt" required>
-              <option value="">Please select</option>
-              <option>Yes</option>
-              <option>No</option>
-            </select>
-          </div>
+</form>
 
-          <div>
-            <label>Upload Payment Receipt *</label>
-            <input type="file" id="receiptFile" accept="image/*,.pdf" required />
-          </div>
+<div class="success" id="success"></div>
+<div class="error" id="error"></div>
 
-        </div>
+</div>
+</div>
 
-        <div class="checkbox-row">
-          <input type="checkbox" id="confirmation" required />
-          <label for="confirmation">
-            I confirm that the payment has been made and all information provided is accurate.
-          </label>
-        </div>
+<script>
+const SCRIPT_URL = 'PASTE_YOUR_APPS_SCRIPT_URL';
 
-        <button type="submit" id="submitBtn">Submit Registration</button>
-      </form>
+document.getElementById('sessionSelection').addEventListener('change', function(){
+const amount = this.options[this.selectedIndex].getAttribute('data-amount');
+document.getElementById('paymentAmount').value = amount;
+});
 
-      <div class="success" id="successBox"></div>
-      <div class="error" id="errorBox"></div>
-    </section>
+document.getElementById('form').addEventListener('submit', async e=>{
+e.preventDefault();
 
-  </main>
+try{
+const file = document.getElementById('receiptFile').files[0];
+const base64 = await toBase64(file);
 
-  <script>
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw9drgPDKwtnTLhMf5JdSXoNF8NfAtlr58XnyHIsC1gIQao6PLtTXoHeEK-PPZQEKk/exec';
+const payload={
+fullName: fullName.value,
+icNo: icNo.value,
+phone: phone.value,
+email: email.value,
+currentStatus: currentStatus.value,
+sessionSelection: sessionSelection.value,
+institution: institution.value,
+paymentDate: paymentDate.value,
+paymentAmount: paymentAmount.value,
+receiptBase64: base64,
+receiptFileName: file.name,
+receiptMimeType: file.type
+};
 
-    document.getElementById('registrationForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
+const res = await fetch(SCRIPT_URL,{
+method:'POST',
+body: JSON.stringify(payload)
+});
 
-      const submitBtn = document.getElementById('submitBtn');
-      const successBox = document.getElementById('successBox');
-      const errorBox = document.getElementById('errorBox');
+const data = await res.json();
 
-      successBox.style.display = 'none';
-      errorBox.style.display = 'none';
+success.style.display='block';
+success.innerHTML='Success! ID: '+data.registrationId;
 
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Submitting...';
+}catch(err){
+error.style.display='block';
+error.innerHTML=err;
+}
+});
 
-      try {
-        const fileInput = document.getElementById('receiptFile');
-        const file = fileInput.files[0];
-
-        if (!file) {
-          throw new Error('Please upload your payment receipt.');
-        }
-
-        if (file.size > 10 * 1024 * 1024) {
-          throw new Error('File size must not exceed 10MB.');
-        }
-
-        const receiptBase64 = await fileToBase64(file);
-
-        const payload = {
-          fullName: document.getElementById('fullName').value.trim(),
-          icNo: document.getElementById('icNo').value.trim(),
-          phone: document.getElementById('phone').value.trim(),
-          email: document.getElementById('email').value.trim(),
-          currentStatus: document.getElementById('currentStatus').value,
-          institution: document.getElementById('institution').value.trim(),
-          paymentDate: document.getElementById('paymentDate').value,
-          paymentAmount: document.getElementById('paymentAmount').value,
-          officialReceipt: document.getElementById('officialReceipt').value,
-          receiptBase64: receiptBase64,
-          receiptFileName: file.name,
-          receiptMimeType: file.type
-        };
-
-        const response = await fetch(SCRIPT_URL, {
-          method: 'POST',
-          body: JSON.stringify(payload)
-        });
-
-        const result = await response.json();
-
-        if (result.status === 'success') {
-          successBox.innerHTML = `
-            Registration submitted successfully.<br>
-            Your Registration ID is: <strong>${result.registrationId}</strong><br><br>
-            Please check your email for confirmation.
-          `;
-          successBox.style.display = 'block';
-          document.getElementById('registrationForm').reset();
-        } else {
-          throw new Error(result.message);
-        }
-
-      } catch (error) {
-        errorBox.textContent = 'Submission failed: ' + error.message;
-        errorBox.style.display = 'block';
-      }
-
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Submit Registration';
-    });
-
-    function fileToBase64(file) {
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = error => reject(error);
-        reader.readAsDataURL(file);
-      });
-    }
-  </script>
+function toBase64(file){
+return new Promise((resolve,reject)=>{
+const reader=new FileReader();
+reader.onload=()=>resolve(reader.result);
+reader.onerror=reject;
+reader.readAsDataURL(file);
+});
+}
+</script>
 
 </body>
 </html>
