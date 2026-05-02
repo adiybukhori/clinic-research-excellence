@@ -95,6 +95,18 @@
       font-weight: normal;
     }
 
+    .session-card {
+      background: #fff7fb;
+      border: 1px solid #f1cde0;
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 12px;
+    }
+
+    .session-card strong {
+      color: #54106f;
+    }
+
     .payment-table {
       width: 100%;
       border-collapse: collapse;
@@ -142,6 +154,11 @@
       border: 1px solid #ccc;
       margin-top: 6px;
       font-size: 15px;
+    }
+
+    input[readonly] {
+      background: #f5f5f5;
+      font-weight: bold;
     }
 
     .checkbox-row {
@@ -215,7 +232,7 @@
       Start smart, research with confidence. Join our practical research clinic designed
       to strengthen your research direction and support your PhD journey.
     </p>
-    <div class="badge">Limited to 30 Participants Only</div>
+    <div class="badge">Limited Seats Available</div>
   </section>
 
   <main class="container">
@@ -225,8 +242,27 @@
       <div class="grid">
         <div class="info-box"><span>Date</span>23 May 2026</div>
         <div class="info-box"><span>Time</span>8:30 AM – 5:00 PM</div>
-        <div class="info-box"><span>Venue</span>Bangi Golf Resort</div>
-        <div class="info-box"><span>Fee</span>RM300</div>
+        <div class="info-box"><span>Venue</span>Auditorium, IUC</div>
+        <div class="info-box"><span>Fee</span>From RM199</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Session Options</h2>
+
+      <div class="session-card">
+        <strong>Morning Session – Research Methodology</strong><br>
+        Fee: RM199
+      </div>
+
+      <div class="session-card">
+        <strong>Afternoon Session – Publisher Journal</strong><br>
+        Fee: RM199
+      </div>
+
+      <div class="session-card">
+        <strong>Full Day – 2 Sessions</strong><br>
+        Fee: RM349
       </div>
     </section>
 
@@ -249,11 +285,11 @@
         </tr>
         <tr>
           <td>Reference 1</td>
-          <td>Student’s IC Number</td>
+          <td>Participant IC / Passport Number</td>
         </tr>
         <tr>
           <td>Reference 2</td>
-          <td>Student’s Phone Number</td>
+          <td>Participant Phone Number</td>
         </tr>
       </table>
 
@@ -301,6 +337,22 @@
           </div>
 
           <div>
+            <label>Session Selection *</label>
+            <select id="sessionSelection" required>
+              <option value="">Please select</option>
+              <option value="Morning Session - Research Methodology" data-amount="199">
+                Morning Session - Research Methodology (RM199)
+              </option>
+              <option value="Afternoon Session - Publisher Journal" data-amount="199">
+                Afternoon Session - Publisher Journal (RM199)
+              </option>
+              <option value="Full Day - 2 Sessions" data-amount="349">
+                Full Day - 2 Sessions (RM349)
+              </option>
+            </select>
+          </div>
+
+          <div>
             <label>Institution / Organisation *</label>
             <input type="text" id="institution" required />
           </div>
@@ -311,8 +363,8 @@
           </div>
 
           <div>
-            <label>Payment Amount *</label>
-            <input type="number" id="paymentAmount" value="300" required />
+            <label>Payment Amount (RM) *</label>
+            <input type="number" id="paymentAmount" readonly required />
           </div>
 
           <div>
@@ -348,7 +400,13 @@
   </main>
 
   <script>
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw9drgPDKwtnTLhMf5JdSXoNF8NfAtlr58XnyHIsC1gIQao6PLtTXoHeEK-PPZQEKk/exec';
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz4G_BwRMi9mz3HpRhVczfzd_Q8y1gKPWcaz9nArRIj5bnThkkzTa-VynaXJ37HDL4/exec';
+
+    document.getElementById('sessionSelection').addEventListener('change', function () {
+      const selectedOption = this.options[this.selectedIndex];
+      const amount = selectedOption.getAttribute('data-amount') || '';
+      document.getElementById('paymentAmount').value = amount;
+    });
 
     document.getElementById('registrationForm').addEventListener('submit', async function(e) {
       e.preventDefault();
@@ -383,6 +441,7 @@
           phone: document.getElementById('phone').value.trim(),
           email: document.getElementById('email').value.trim(),
           currentStatus: document.getElementById('currentStatus').value,
+          sessionSelection: document.getElementById('sessionSelection').value,
           institution: document.getElementById('institution').value.trim(),
           paymentDate: document.getElementById('paymentDate').value,
           paymentAmount: document.getElementById('paymentAmount').value,
