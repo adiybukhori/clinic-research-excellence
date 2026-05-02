@@ -61,29 +61,11 @@
     }
 
     .poster-card {
-      position: relative;
-      padding: 30px;
+      background: white;
+      padding: 16px;
       border-radius: 22px;
-      overflow: hidden;
-    }
-    
-    .poster-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url('/poster.jpg') center/cover no-repeat;
-      filter: blur(40px);
-      opacity: 0.25;
-      transform: scale(1.2);
-    }
-    
-    .poster-card img {
-      position: relative;
-      z-index: 1;
-      display: block;
-      margin: auto;
-      max-height: 600px;
-      border-radius: 16px;
+      margin-bottom: 24px;
+      box-shadow: 0 14px 35px rgba(0,0,0,0.12);
     }
 
     .poster-card img {
@@ -324,9 +306,9 @@
 
   <main class="container">
 
-      <section class="poster-card">
-        <img src="/poster.jpg" alt="Poster">
-      </section>
+    <section class="poster-card">
+      <img src="/poster.jpg" alt="Poster">
+    </section>
 
     <section class="card">
       <h2>Program Overview</h2>
